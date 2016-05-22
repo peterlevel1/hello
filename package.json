@@ -1,0 +1,9 @@
+{
+	"dependencies": [
+		"gulp-util",
+		"gulp-stylus",
+		"through2",
+		"gulp-jade",
+		"browserify"
+	]
+}

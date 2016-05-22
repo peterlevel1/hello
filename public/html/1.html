@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+</head>
+<body>
+	<script src="../bower_components/cc/js/inherits.js"></script>
+	<script>
+		function A() {
+			this.a = 'aaa';
+		}
+
+		A.prototype.say = function () {
+			console.log('[A]: ' + this.a);
+		};
+
+		function B() {
+			A.call(this);
+			this.b = 'bbb';
+		}
+
+		B.inherits(A, {
+			say: function () {
+				this._super();
+				console.log('[B]: ' + this.b);
+			}
+		});
+
+		var b = new B;
+
+		b.say();
+	</script>
+</body>
+</html>
