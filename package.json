@@ -1,9 +1,14 @@
 {
-	"dependencies": [
-		"gulp-util",
-		"gulp-stylus",
-		"through2",
-		"gulp-jade",
-		"browserify"
-	]
+  "dependencies": [
+    "gulp-util",
+    "gulp-stylus",
+    "through2",
+    "gulp-jade",
+    "browserify",
+    "express@4",
+    "mongoose",
+    "express-session",
+    "body-parser",
+    "cookie-parser"
+  ]
 }

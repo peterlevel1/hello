@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script src="../bower_components/cc/js/inherits.js"></script>
+  <script src="../bower_components/cc/js/Event.js"></script>
+  <script>
+    function A() {
+      cc.Event.call(this);
+    }
+
+    A.inherits(cc.Event);
+
+    var a = new A();
+    console.log(a);
+  </script>
+</body>
+</html>

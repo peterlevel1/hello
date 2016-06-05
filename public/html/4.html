@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="div1">
+    <h1>{{=: hello | getUpper}}</h1>
+  </div>
+
+  <div id="div2">
+    <p>{{=: users | map:'name' | join | upcase }}</p>
+  </div>
+
+  <div id="div3">
+    <p>{{=: arr | add1:'age' }}</p>
+  </div>
+
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../bower_components/cc/js/ejs.js"></script>
+<script>
+  var ejs = cc.ejs;
+
+  ejs.filters.getUpper = function (str) {
+    return str.toUpperCase();
+  };
+
+  var str = $('#div1').html();
+  var fn = ejs.compile(str);
+  var out = fn({ hello: 'hello world !' });
+  $('#div1').html(out);
+
+
+  // <p>Tj, Mape, Guillermo</p>
+  var ret = ejs.render($('#div2').html(), {
+    users: [
+      { name: 'tj' },
+      { name: 'mape' },
+      { name: 'guillermo' }
+    ]
+  });
+
+  $('#div2').html(ret);
+
+  ejs.filters.add1 = function (arr, prop) {
+    return arr.map(function (v) {
+      return v[prop] + 1;
+    });
+  };
+
+  var ret3 = ejs.render($('#div3').html(), {
+    arr: [
+      { age: 1 },
+      { age: 2 },
+      { age: 3 }
+    ]
+  });
+  $('#div3').html(ret3);
+
+</script>
+</body>
+</html>

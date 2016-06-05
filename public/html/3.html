@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script src="../bower_components/cc/js/querystring.js"></script>
+<script>
+  var url = 'aaa=bbb&c["asas"]=aa&c[aaa]=1&d[0]=2222';
+
+  var obj = querystring.parse(url);
+
+  console.log(obj);
+
+  var objUrl = {
+    aaa: 'asas',
+    b: 1,
+    c: [0, 1, 2],
+    d: {
+      aaa: 1
+    }
+  };
+
+  var str = querystring.stringify(objUrl);
+
+  console.log(str);
+
+  var objTrans = querystring.parse(str);
+
+  console.log(objTrans);
+
+</script>
+</body>
+</html>
